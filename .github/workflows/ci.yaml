@@ -58,7 +58,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Build the Docker image
-        run: docker build --pull --rm -f "./DockerFile" -t ${{ vars.DOCKER_PROJECT}}:${GITHUB_REF_NAME} --tag fastapi
+        run: docker build -t ${{ vars.DOCKER_PROJECT}}:${GITHUB_REF_NAME} -f Dockerfile .
 
       - name: Push image to dockerhub
         run: docker push ${{ vars.DOCKER_PROJECT}}:${GITHUB_REF_NAME}
