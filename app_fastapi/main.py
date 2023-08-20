@@ -33,14 +33,12 @@ class Logger:
         self._logger.addHandler(handler)
         self._handlers.append(handler)
 
-    @property
     def console_handler(self):
         """This is doc string"""
         handler = logging.StreamHandler()
         self._add_handler(handler)
         return handler
 
-    @property
     def file_handler(self):
         """This is doc string"""
         handler = TimedRotatingFileHandler('py_log.log', when='midnight', backupCount=7)
@@ -58,8 +56,8 @@ app = FastAPI()
 @app.on_event("startup")
 async def startup_event():
     """Startup"""
-    logger.console_handler
-    logger.file_handler
+    logger.console_handler()
+    logger.file_handler()
 
 
 @app.get(settings.home_url, response_model=StatusPage)
