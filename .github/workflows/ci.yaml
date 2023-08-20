@@ -8,7 +8,7 @@ jobs:
   run_tests:
     runs-on: ubuntu-latest
 
-  environment: test
+  environment: tests
 
   env:
     HOME_URL: ${{vars.HOME_URL}}
